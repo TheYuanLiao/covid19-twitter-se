@@ -1,0 +1,11 @@
+# Information about the geo files used for DeSO and the general boundaries
+
+deso:
+  epsg: EPSG:3006
+  zones_path: /dbs/geo/DeSO/DeSO_2018_v2.shp
+  zone_id: id
+
+provinces:
+  epsg: EPSG:3006
+  zones_path: /dbs/geo/provinces/alla_lan.shp
+  zone_id: ID
