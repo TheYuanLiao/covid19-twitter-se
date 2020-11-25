@@ -177,7 +177,7 @@ class GeotweetsProcessor:
 
     def tweets_filter_users_with_enough_geo(self):
         tweet_count_before = self.geotweets.groupby('user_name').size()
-        user2select = tweet_count_before[tweet_count_before <= 50].index
+        user2select = tweet_count_before[tweet_count_before >= 50].index
         self.geotweets = self.geotweets.loc[self.geotweets['user_name'].isin(user2select), :]
 
     def tweets_filter_users_in_sweden(self):
@@ -210,7 +210,7 @@ class GeotweetsProcessor:
     def tweets_save(self):
         if os.path.exists(self.csv_geotweets):
             print('Geotweets file exists and will be overwritten.')
-        self.geotweets.to_csv(self.csv_geotweets)
+        self.geotweets.to_csv(self.csv_geotweets, index=False)
 
     def users_home_work_save(self):
         if os.path.exists(self.csv_home_work):
